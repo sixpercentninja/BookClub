@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSSet<Book *> *friends_books;
+@property (nullable, nonatomic, retain) NSManagedObject *friends_user;
 
 @end
 

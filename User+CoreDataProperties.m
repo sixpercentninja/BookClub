@@ -1,5 +1,5 @@
 //
-//  Friend+CoreDataProperties.m
+//  User+CoreDataProperties.m
 //  BookClub
 //
 //  Created by Andrew Chen on 1/27/16.
@@ -9,12 +9,10 @@
 //  to delete and recreate this implementation file for your updated model.
 //
 
-#import "Friend+CoreDataProperties.h"
+#import "User+CoreDataProperties.h"
 
-@implementation Friend (CoreDataProperties)
+@implementation User (CoreDataProperties)
 
-@dynamic name;
-@dynamic friends_books;
-@dynamic friends_user;
+@dynamic users_friends;
 
 @end
