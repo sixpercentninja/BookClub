@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Automatic">
+    <entity name="Book" representedClassName="Book" syncable="YES">
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="books_comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="comment_of_book" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="books_owner" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="friends_books" inverseEntity="Friend" syncable="YES"/>
+    </entity>
+    <entity name="Comment" representedClassName="Comment" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="comment_of_book" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="books_comments" inverseEntity="Book" syncable="YES"/>
+    </entity>
+    <entity name="Friend" representedClassName="Friend" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="friends_books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="books_owner" inverseEntity="Book" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Friend" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="Comment" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="Book" positionX="-36" positionY="9" width="128" height="90"/>
+    </elements>
 </model>
