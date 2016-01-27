@@ -22,6 +22,8 @@
 		97A4C9F61C5979290072C058 /* Friend.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A4C9EE1C5979290072C058 /* Friend.m */; };
 		97A4C9F71C5979290072C058 /* Comment+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A4C9F01C5979290072C058 /* Comment+CoreDataProperties.m */; };
 		97A4C9F81C5979290072C058 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A4C9F21C5979290072C058 /* Comment.m */; };
+		97A4C9FD1C597FFE0072C058 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A4C9FA1C597FFE0072C058 /* User+CoreDataProperties.m */; };
+		97A4C9FE1C597FFE0072C058 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A4C9FC1C597FFE0072C058 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,10 @@
 		97A4C9F01C5979290072C058 /* Comment+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Comment+CoreDataProperties.m"; sourceTree = "<group>"; };
 		97A4C9F11C5979290072C058 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		97A4C9F21C5979290072C058 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		97A4C9F91C597FFE0072C058 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		97A4C9FA1C597FFE0072C058 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		97A4C9FB1C597FFE0072C058 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		97A4C9FC1C597FFE0072C058 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,10 @@
 		97A4C9BC1C59737E0072C058 = {
 			isa = PBXGroup;
 			children = (
+				97A4C9F91C597FFE0072C058 /* User+CoreDataProperties.h */,
+				97A4C9FA1C597FFE0072C058 /* User+CoreDataProperties.m */,
+				97A4C9FB1C597FFE0072C058 /* User.h */,
+				97A4C9FC1C597FFE0072C058 /* User.m */,
 				97A4C9E71C5979290072C058 /* Book+CoreDataProperties.h */,
 				97A4C9E81C5979290072C058 /* Book+CoreDataProperties.m */,
 				97A4C9E91C5979290072C058 /* Book.h */,
@@ -192,12 +202,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97A4C9FE1C597FFE0072C058 /* User.m in Sources */,
 				97A4C9D01C59737E0072C058 /* ViewController.m in Sources */,
 				97A4C9F71C5979290072C058 /* Comment+CoreDataProperties.m in Sources */,
 				97A4C9F51C5979290072C058 /* Friend+CoreDataProperties.m in Sources */,
 				97A4C9F81C5979290072C058 /* Comment.m in Sources */,
 				97A4C9CD1C59737E0072C058 /* AppDelegate.m in Sources */,
 				97A4C9F61C5979290072C058 /* Friend.m in Sources */,
+				97A4C9FD1C597FFE0072C058 /* User+CoreDataProperties.m in Sources */,
 				97A4C9F31C5979290072C058 /* Book+CoreDataProperties.m in Sources */,
 				97A4C9E41C59747B0072C058 /* FriendsTableTableViewController.m in Sources */,
 				97A4C9D61C59737E0072C058 /* BookClub.xcdatamodeld in Sources */,

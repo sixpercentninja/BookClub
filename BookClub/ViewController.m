@@ -7,8 +7,13 @@
 //
 
 #import "ViewController.h"
+#import "User.h"
+#import "FriendsTableTableViewController.h"
+#import "AppDelegate.h"
 
 @interface ViewController ()
+@property NSManagedObjectContext *moc;
+@property User *currentUser;
 
 @end
 
@@ -16,12 +21,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    self.moc = appDelegate.managedObjectContext;
+ 
+    [self loadUser];
+    
+    if (!self.currentUser) {
+        self.currentUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.moc];
+    }
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void) loadUser {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    NSError *error;
+    self.currentUser = [[[self.moc executeFetchRequest:request error:&error]mutableCopy] objectAtIndex:0];
 }
 
+                        
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.destinationViewController isKindOfClass:[FriendsTableTableViewController class]]) {
+        FriendsTableTableViewController *destination = segue.destinationViewController;
+        destination.user = self.currentUser;
+    }
+    
+}
 @end

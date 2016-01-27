@@ -15,6 +15,7 @@
 @property NSArray *jsonDataObjects;
 @property NSManagedObjectContext *moc;
 @property NSMutableArray *friendsArray;
+@property NSMutableArray *highlightedArray;
 
 @end
 
@@ -36,21 +37,20 @@
     
     self.jsonDataObjects = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:&jsonError];
     
-    
-    for (int i =0; i<self.jsonDataObjects.count; i++) {
-        Friend *newFriend = [NSEntityDescription insertNewObjectForEntityForName:@"Friend" inManagedObjectContext:self.moc];
-        newFriend.name = [self.jsonDataObjects objectAtIndex:i];
-        
-        NSError *error;
-        
-        if (![self.moc save:&error]) {
-            NSLog(@"Here's the error: %@", error.localizedDescription);
-        }
-        
-    }
     [self loadFriends];
     
-    
+    if (self.friendsArray.count == 0) {
+        for (int i =0; i<self.jsonDataObjects.count; i++) {
+            Friend *newFriend = [NSEntityDescription insertNewObjectForEntityForName:@"Friend" inManagedObjectContext:self.moc];
+            newFriend.name = [self.jsonDataObjects objectAtIndex:i];
+            
+            NSError *error;
+            
+            if (![self.moc save:&error]) {
+                NSLog(@"Here's the error: %@", error.localizedDescription);
+            }
+        }
+    }
 }
 
 -(void) loadFriends {
@@ -77,12 +77,33 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"friendcell" forIndexPath:indexPath];
+    if ([[self.highlightedArray objectAtIndex:indexPath.row]  isEqual: @1]) {
+        cell.backgroundColor = [UIColor yellowColor];
+    }else {
+        cell.backgroundColor = [UIColor whiteColor];
+    }
     
     cell.textLabel.text = [[self.friendsArray objectAtIndex:indexPath.row] name];;
     return cell;
 }
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    Friend *friendToAdd = [self.friendsArray objectAtIndex:indexPath.row];
+    if ([self.highlightedArray objectAtIndex:indexPath.row] == 0) {
+        [self.user addUsers_friendsObject:friendToAdd];
+        [self.highlightedArray replaceObjectAtIndex:indexPath.row withObject:@1];
+    } else {
+        [self.user removeUsers_friendsObject:friendToAdd];
+        [self.highlightedArray replaceObjectAtIndex:indexPath.row withObject:@0];
+    }
+    
+    
+    NSError *error;
+    
+    if(![self.moc save:&error]){
+        NSLog(@"Error message: %@", error.localizedDescription);
+    }
+}
 
 
 

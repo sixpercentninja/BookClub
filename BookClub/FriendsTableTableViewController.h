@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface FriendsTableTableViewController : UITableViewController
+
+@property User *user;
+
 
 @end
