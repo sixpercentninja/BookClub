@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15A284" minimumToolsVersion="Automatic">
     <entity name="Book" representedClassName="Book" syncable="YES">
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="books_comments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Comment" inverseName="comment_of_book" inverseEntity="Comment" syncable="YES"/>
@@ -11,6 +11,7 @@
     </entity>
     <entity name="Friend" representedClassName="Friend" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="selected" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="friends_books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="books_owner" inverseEntity="Book" syncable="YES"/>
         <relationship name="friends_user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="users_friends" inverseEntity="User" syncable="YES"/>
     </entity>
@@ -18,9 +19,9 @@
         <relationship name="users_friends" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Friend" inverseName="friends_user" inverseEntity="Friend" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Friend" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="Comment" positionX="-54" positionY="-9" width="128" height="75"/>
         <element name="Book" positionX="-36" positionY="9" width="128" height="90"/>
+        <element name="Comment" positionX="-54" positionY="-9" width="128" height="75"/>
+        <element name="Friend" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="User" positionX="-18" positionY="54" width="128" height="60"/>
     </elements>
 </model>

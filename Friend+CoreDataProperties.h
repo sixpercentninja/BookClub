@@ -2,7 +2,7 @@
 //  Friend+CoreDataProperties.h
 //  BookClub
 //
-//  Created by Andrew Chen on 1/27/16.
+//  Created by Rafael Auriemo on 1/27/16.
 //  Copyright © 2016 Andrew Chen. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -10,14 +10,17 @@
 //
 
 #import "Friend.h"
+@class User;
+@class Book;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Friend (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *name;
+@property (nullable, nonatomic, retain) NSNumber *selected;
 @property (nullable, nonatomic, retain) NSSet<Book *> *friends_books;
-@property (nullable, nonatomic, retain) NSManagedObject *friends_user;
+@property (nullable, nonatomic, retain) User *friends_user;
 
 @end
 

@@ -11,6 +11,14 @@
 
 @implementation Friend
 
+//-(instancetype)init {
+//    
+//    self = [super init];
+//    
+//    self.selected = @0;
+//    
+//    return self;
+//}
 // Insert code here to add functionality to your managed object subclass
 
 @end
