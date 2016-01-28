@@ -12,5 +12,7 @@
 @interface FriendDetailViewController : UIViewController
 
 @property Friend *currentFriend;
+@property (weak, nonatomic) IBOutlet UILabel *friendNameLabel;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

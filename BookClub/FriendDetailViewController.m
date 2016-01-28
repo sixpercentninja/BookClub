@@ -7,8 +7,14 @@
 //
 
 #import "FriendDetailViewController.h"
+#import "Book.h"
+#import "AppDelegate.h"
+#import "CommentViewController.h"
 
-@interface FriendDetailViewController ()
+@interface FriendDetailViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *addBookTextField;
+@property NSMutableArray *booksArray;
+@property NSManagedObjectContext *moc;
 
 @end
 
@@ -16,22 +22,52 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    self.moc = appDelegate.managedObjectContext;
+    [self loadBooksArray];
+    self.friendNameLabel.text = self.currentFriend.name;
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+-(void) loadBooksArray {
+    self.booksArray = [NSMutableArray arrayWithArray:[self.currentFriend.friends_books allObjects]];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bookcell"];
+    
+    cell.textLabel.text = [[self.booksArray objectAtIndex:indexPath.row] title];
+    
+    return cell;
 }
-*/
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.currentFriend.friends_books.count;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    Book *bookToAdd = [NSEntityDescription insertNewObjectForEntityForName:@"Book" inManagedObjectContext:self.moc];
+    bookToAdd.title = self.addBookTextField.text;
+    [self.currentFriend addFriends_booksObject:bookToAdd];
+    
+    NSError *error;
+    
+    if (![self.moc save:&error]) {
+        NSLog(@"error: %@", error.localizedDescription);
+    }
+    [self loadBooksArray];
+    [self.tableView reloadData];
+    
+    return [textField resignFirstResponder];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    CommentViewController *destination = segue.destinationViewController;
+    NSIndexPath *path = [self.tableView indexPathForCell:sender];
+    destination.currentBook = [self.booksArray objectAtIndex:path.row];
+}
+
 
 @end

@@ -81,7 +81,7 @@
         FriendDetailViewController *destination = segue.destinationViewController;
         NSIndexPath *path = [self.tableView indexPathForCell:sender];
         destination.currentFriend = [self.usersFriendsArray objectAtIndex:path.row];
-        destination.title = destination.currentFriend.name;
+        destination.friendNameLabel.text = destination.currentFriend.name;
     }
     
 }

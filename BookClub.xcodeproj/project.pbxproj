@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32F8923E1C5998570032B93B /* FriendDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F8923D1C5998570032B93B /* FriendDetailViewController.m */; };
+		32F892411C59B0D40032B93B /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32F892401C59B0D40032B93B /* CommentViewController.m */; };
 		97A4C9CA1C59737E0072C058 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A4C9C91C59737E0072C058 /* main.m */; };
 		97A4C9CD1C59737E0072C058 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A4C9CC1C59737E0072C058 /* AppDelegate.m */; };
 		97A4C9D01C59737E0072C058 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A4C9CF1C59737E0072C058 /* ViewController.m */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		32F8923C1C5998570032B93B /* FriendDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendDetailViewController.h; sourceTree = "<group>"; };
 		32F8923D1C5998570032B93B /* FriendDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendDetailViewController.m; sourceTree = "<group>"; };
+		32F8923F1C59B0D40032B93B /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
+		32F892401C59B0D40032B93B /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		97A4C9C51C59737E0072C058 /* BookClub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BookClub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A4C9C91C59737E0072C058 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		97A4C9CB1C59737E0072C058 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -113,6 +116,8 @@
 				97A4C9E21C59747B0072C058 /* FriendsTableTableViewController.h */,
 				97A4C9E31C59747B0072C058 /* FriendsTableTableViewController.m */,
 				97A4C9D11C59737E0072C058 /* Main.storyboard */,
+				32F8923F1C59B0D40032B93B /* CommentViewController.h */,
+				32F892401C59B0D40032B93B /* CommentViewController.m */,
 				32F8923C1C5998570032B93B /* FriendDetailViewController.h */,
 				32F8923D1C5998570032B93B /* FriendDetailViewController.m */,
 				97A4C9D71C59737E0072C058 /* Assets.xcassets */,
@@ -216,6 +221,7 @@
 				97A4C9F61C5979290072C058 /* Friend.m in Sources */,
 				32F8923E1C5998570032B93B /* FriendDetailViewController.m in Sources */,
 				97A4C9FD1C597FFE0072C058 /* User+CoreDataProperties.m in Sources */,
+				32F892411C59B0D40032B93B /* CommentViewController.m in Sources */,
 				97A4C9F31C5979290072C058 /* Book+CoreDataProperties.m in Sources */,
 				97A4C9E41C59747B0072C058 /* FriendsTableTableViewController.m in Sources */,
 				97A4C9D61C59737E0072C058 /* BookClub.xcdatamodeld in Sources */,
