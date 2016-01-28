@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "User.h"
 #import "FriendsTableTableViewController.h"
+#import "FriendDetailViewController.h"
 #import "AppDelegate.h"
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -76,6 +77,11 @@
     if ([segue.destinationViewController isKindOfClass:[FriendsTableTableViewController class]]) {
         FriendsTableTableViewController *destination = segue.destinationViewController;
         destination.user = self.currentUser;
+    }else{
+        FriendDetailViewController *destination = segue.destinationViewController;
+        NSIndexPath *path = [self.tableView indexPathForCell:sender];
+        destination.currentFriend = [self.usersFriendsArray objectAtIndex:path.row];
+        destination.title = destination.currentFriend.name;
     }
     
 }
