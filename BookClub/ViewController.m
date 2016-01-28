@@ -47,12 +47,19 @@
 
 -(void) loadUser {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:@"User"];
+    //NSSortDescriptor *byBooks = [[NSSortDescriptor alloc]initWith:@"book.count" ascending:YES];
+                                 
+//                                 sortDescriptorWithKey:@"Users.users_friends.@count" ascending:YES];
+
+//    request.sortDescriptors = @[byBooks];
+    
     NSError *error;
     if ([[[self.moc executeFetchRequest:request error:&error] mutableCopy] count] == 0) {
         self.currentUser = nil;
     }else {
         self.currentUser = [[[self.moc executeFetchRequest:request error:&error]mutableCopy] objectAtIndex:0];
     }
+
 }
 
 #pragma mark - table view delegate methods
@@ -69,9 +76,14 @@
 }
 
 -(void) loadFriends {
-    self.usersFriendsArray = [NSMutableArray arrayWithArray:[self.currentUser.users_friends allObjects]];
+    NSMutableArray *friendsArray = [NSMutableArray arrayWithArray:[self.currentUser.users_friends allObjects]];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]initWithKey:@"friends_books.@count" ascending:NO];
+    
+    NSArray *descriptors = [[NSArray alloc]initWithObjects:sortDescriptor, nil];
+
+    NSArray *sortedArray = [friendsArray sortedArrayUsingDescriptors:descriptors];
+    self.usersFriendsArray = [NSMutableArray arrayWithArray:sortedArray];
 }
-                        
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.destinationViewController isKindOfClass:[FriendsTableTableViewController class]]) {
